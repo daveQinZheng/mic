@@ -179,39 +179,9 @@ namespace robobloq {
         rb.write(list);
     }
 
-    //% blockId="getUltrasonicValue" block="read ultrasonic sensor %e"
-    export function getUltrasonicValue(e:portEnum): number {
-        let oid = rb.orderId();
-        let list = pro.getUltrasonicValue(oid,e);
-        rb.write(list);
-        basic.pause(200);
-        rb.read();
-        let item = rb.getDataItem(oid,0);
-        return pro.parseUltrasonicValue(item);
-    }
 
-    //% blockId="setBuzzer" block="play note on %rate | beat %time |s"
-    export function setBuzzer(rate:enumSoundRate, time:enumSoundTime): void {
-        let oid = 0;
-        let list = pro.setBuzzer(oid,rate,time);
-        console.log(pro.listToString(list) );
-        rb.write(list);
-        basic.pause(time);
-    }
 
-    //% blockId="setUltrasonicLight" block="set %e| the ultrasonic red %red|green %green | blue %blue"
-    export function setUltrasonicLight(e:portEnum,red:number,green:number,blue:number): void {
-        let oid = 0;
-        let list = pro.setUltrasonicLight(oid,e,red,green,blue);
-        rb.write(list);
-    }
 
-    //% blockId="setMove" block="set motor M1 %m1Speed|M2 %m2Speed"
-    export function setMove(m1Speed:number, m2Speed:number): void {
-        let oid = 0;
-        let list = pro.setMove(oid,m1Speed, m2Speed);
-        rb.write(list);
-    }
 
     /**
      * robot
